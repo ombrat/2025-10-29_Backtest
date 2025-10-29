@@ -1,0 +1,64 @@
+<!-- index.sample.html - sample integration page (drop into your project root or adapt) -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Backtest UI - Quick Wins</title>
+  <link rel="stylesheet" href="styles/design-tokens.css" />
+  <link rel="stylesheet" href="styles/skeleton.css" />
+</head>
+<body>
+  <div id="app" class="container">
+    <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div>
+        <div class="h1">Backtest — Demo UI</div>
+        <div class="small">Esempio con ricerca ticker debounced, skeleton e controllo pesi.</div>
+      </div>
+      <div><button class="btn" id="run-backtest">Esegui Backtest</button></div>
+    </header>
+
+    <!-- Include ticker search markup -->
+    <!-- copy/paste components/ticker-search.html here -->
+
+    <!-- Include weights control markup -->
+    <!-- copy/paste components/weights-control.html here -->
+
+    <section id="results" style="margin-top:16px">
+      <div id="kpi-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        <div class="card"><div class="small">CAGR</div><div style="font-weight:700;font-size:1.25rem">--</div></div>
+        <div class="card"><div class="small">Sharpe</div><div style="font-weight:700;font-size:1.25rem">--</div></div>
+        <div class="card"><div class="small">Max Drawdown</div><div style="font-weight:700;font-size:1.25rem">--</div></div>
+      </div>
+
+      <div id="chart" class="card" style="margin-top:12px;height:320px;display:flex;align-items:center;justify-content:center">
+        <div class="skeleton title" style="width:80%;height:24px"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module">
+    import './js/ticker-search.js';
+    import './js/weights-control.js';
+
+    // Example listeners for custom events emitted by components
+    window.addEventListener('ticker-selected', (e)=> {
+      console.log('Ticker selected', e.detail);
+      // You can add the selected ticker to weights-control or to a list
+    });
+
+    window.addEventListener('weights-applied', (e)=>{
+      console.log('Weights applied (fractions):', e.detail);
+      // Here call your front-end logic to trigger backtest POST
+    });
+
+    document.getElementById('run-backtest').addEventListener('click', ()=>{
+      // Example: show skeleton while loading
+      const chart = document.getElementById('chart');
+      chart.innerHTML = '<div class="skeleton title" style="width:60%"></div>';
+      // Call your backend and then render chart + KPIs
+    });
+  </script>
+</body>
+</html>

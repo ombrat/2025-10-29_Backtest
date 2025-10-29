@@ -1,0 +1,20 @@
+<!-- weights-control.html - markup snippet for weights control -->
+<div class="card" id="weights-control" style="margin-bottom:16px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <div>
+      <div class="h2">Pesi Portafoglio</div>
+      <div class="small">Inserisci pesi (numeri o percentuali). Usa "Normalizza" per farli sommare a 100%.</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn secondary" id="normalize-btn">Normalizza</button>
+      <button class="btn" id="reset-weights">Reset</button>
+    </div>
+  </div>
+
+  <div id="weights-list"></div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+    <div class="small">Somma: <span id="weights-sum">0</span>%</div>
+    <div><button class="btn" id="apply-weights">Applica Pesi</button></div>
+  </div>
+</div>

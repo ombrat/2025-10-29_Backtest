@@ -1,0 +1,15 @@
+<!-- ticker-search.html - markup snippet (include in your page where needed) -->
+<div class="card" id="ticker-search-card" style="margin-bottom:16px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <div>
+      <div class="h2">Cerca Ticker</div>
+      <div class="small">Digita almeno 2 lettere. Usa le frecce + Enter per selezionare.</div>
+    </div>
+    <button class="btn secondary" id="clear-search">Pulisci</button>
+  </div>
+
+  <div style="position:relative;">
+    <input id="ticker-search-input" class="input" placeholder="Es. AAPL, MSFT, EURUSD..." aria-autocomplete="list" aria-controls="ticker-suggestions" />
+    <div id="ticker-suggestions" role="listbox" style="position:absolute;left:0;right:0;top:54px;z-index:40;"></div>
+  </div>
+</div>
