@@ -1,0 +1,57 @@
+:root{
+  --app-max-width: 1300px;
+  --panel-bg: #151515;
+  --panel-padding: 20px;
+  --accent: #1e88e5;
+  --accent-2: #ffb300;
+  --muted: #999;
+  --text: #e0e0e0;
+  --radius: 12px;
+  --shadow: 0 8px 20px rgba(0,0,0,0.6);
+  --card-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* ... your existing rules ... */
+
+/* Chart controls (export buttons, toggles) */
+.chart-controls {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.chart-controls .btn {
+  padding: 8px 12px;
+  background: #2a2a2a;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.chart-controls .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Loading overlay used sometimes on long operations (generic) */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* small responsive tweak for chart control layout */
+@media (max-width: 700px) {
+  .chart-controls { gap: 6px; }
+  .chart-controls .btn { width: 100%; padding: 12px; font-size: 14px; }
+}
